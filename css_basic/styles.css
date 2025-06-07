@@ -1,0 +1,42 @@
+/* Styling for the Positioning task */
+
+/* 1. Both container tags, <body> and <main> must be told that they are containers to flexible boxes */
+body {
+    display: flex;
+}
+
+main {
+    display: flex;
+}
+
+/* 2. <body> contains a column of three boxes (<header>, <main> and <footer>) */
+body {
+    flex-direction: column;
+}
+
+/* 2. <main> contains a row of 2 boxes (<article> and <aside>) */
+main {
+    flex-direction: row;
+}
+
+/* 3. Ensure the <main> tag keeps an automatic height and width */
+main {
+    flex: auto; /* This makes main flexible to take up remaining space */
+}
+
+/* 4. Content (article) takes ⅔ of the width, and aside takes ⅓ */
+article {
+    flex: 2; /* Takes up 2 parts of the available space */
+}
+
+aside {
+    flex: 1; /* Takes up 1 part of the available space */
+}
+
+/* 5. Ensure the user can scroll within your <article> and your <aside> */
+article, aside {
+    overflow-y: auto;
+    /* Adding a height to allow scrolling to be visible for testing. */
+    /* In a real project, height would be determined by content or responsive design. */
+    height: 400px; /* Adjust as needed for testing scroll behavior */
+}
