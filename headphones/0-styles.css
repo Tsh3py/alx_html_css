@@ -1,0 +1,572 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif; /* Primary font from Figma (ensure it's imported in HTML) */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and border in element's total width/height */
+    color: #333; /* Default text color */
+    line-height: 1.6; /* Standard line height for readability */
+    overflow-x: hidden; /* Prevent horizontal scroll on small screens */
+}
+
+/* Universal box-sizing for all elements */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Common container for max-width and centering content */
+.container {
+    max-width: 1000px; /* Max content width as per project requirements */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 0 20px; /* Horizontal padding for spacing on smaller screens */
+}
+
+/* Basic button styling (reusable) */
+.btn {
+    display: inline-block;
+    padding: 15px 35px; /* Adjust based on Figma */
+    background-color: #FF6565; /* Default button color (red) */
+    color: white;
+    border: none;
+    border-radius: 25px; /* Rounded corners for buttons */
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none; /* Ensure no underline for button-like links */
+    transition: opacity 0.3s ease; /* Smooth transition for hover/active opacity */
+}
+
+/* Button hover/active state (required: opacity: 0.9) */
+.btn:hover, .btn:active {
+    opacity: 0.9;
+}
+
+/* Visually hidden class for accessibility labels */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* --- 1. Header Section (.hero-section) --- */
+.hero-section {
+    /* Background: Image from Figma with a dark overlay */
+    /* IMPORTANT: Replace with your actual hero banner image URL from Figma */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* Dark overlay for text readability */
+                url('images-heaphones_hero_1') center/cover no-repeat;
+    color: white;
+    min-height: 100vh; /* Takes full viewport height */
+    display: flex;
+    flex-direction: column; /* Stacks header content and banner content vertically */
+    justify-content: space-between; /* Pushes content wrapper to top, banner content to middle/bottom */
+    align-items: center; /* Horizontally centers all content within the header */
+    text-align: center; /* Centers text elements */
+    padding-top: 20px; /* Space from top */
+    padding-bottom: 50px; /* Space from bottom before content */
+}
+
+.header-content-wrapper {
+    display: flex;
+    justify-content: space-between; /* Logo left, nav right */
+    align-items: center; /* Vertically align logo and nav */
+    width: 100%; /* Take full width of container */
+    padding: 0 20px; /* Internal padding */
+}
+
+.logo img {
+    height: 32px; /* Adjust based on Figma logo size */
+    width: auto;
+    display: block; /* Remove extra space below image */
+}
+
+/* Mobile menu toggle (hamburger icon) */
+.menu-toggle {
+    display: none; /* Hidden by default */
+}
+
+.menu-icon {
+    display: none; /* Hidden by default, shown in media query */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 100; /* Ensure it's above other elements */
+    position: relative; /* For span positioning */
+}
+
+.menu-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Navigation Bar */
+.main-nav {
+    flex-grow: 1; /* Allows nav to take available space */
+    display: flex; /* Makes nav list a flex container */
+    justify-content: flex-end; /* Pushes nav items to the right */
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Arrange list items horizontally */
+}
+
+.nav-list li {
+    margin-left: 40px; /* Space between nav items */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 17px; /* Adjust based on Figma */
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Nav link hover/active state (required: #FF6565) */
+.nav-link:hover, .nav-link:active {
+    color: #FF6565;
+}
+
+/* Hero Banner Content */
+.hero-banner-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Takes remaining vertical space */
+    padding-top: 50px; /* Space above title */
+    padding-bottom: 50px; /* Space below button */
+}
+
+.hero-banner-content h1 {
+    font-size: 5em; /* Large heading as seen in Figma */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero-banner-content p {
+    font-size: 1.5em; /* Tagline font size */
+    font-weight: 300; /* Lighter font for tagline */
+    margin-bottom: 40px; /* Space below tagline */
+}
+
+.cta-button {
+    background-color: #000000; /* Button color from Figma */
+    color: radial;
+    margin-bottom: 60px; /* Space below button */
+}
+
+.hero-description {
+    max-width: 600px; /* Max width for the description text */
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 300;
+    opacity: 0.8; /* Slightly less opaque for descriptive text */
+}
+
+/* --- 2. Main Content Sections --- */
+
+/* --- "What we do..." Section (.what-we-do-section) --- */
+.what-we-do-section {
+    padding: 80px 0; /* Vertical padding for the section */
+    text-align: center;
+}
+
+.section-intro h2 {
+    font-size: 32px; /* Adjust based on Figma */
+    margin-bottom: 20px;
+    color: #000; /* Black text */
+}
+
+.section-intro p {
+    max-width: 650px; /* Max width for intro paragraph */
+    margin: 0 auto 50px auto; /* Center paragraph and space below */
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.features-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allow features to wrap on smaller screens */
+    justify-content: center; /* Center features horizontally */
+    gap: 40px; /* Space between feature items */
+    margin-top: 40px;
+}
+
+.feature-item {
+    flex-basis: calc(25% - 30px); /* Approx 4 items per row, considering gap */
+    min-width: 200px; /* Minimum width before wrapping */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.feature-item .feature-icon {
+    width: 80px; /* Icon size */
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.feature-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* --- "Our results speak for themselves" Section (.our-results-section) --- */
+.our-results-section {
+    background-color: #2D2D2D; /* Dark background as per Figma */
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.our-results-section .section-intro {
+    margin-bottom: 60px; /* More space below intro for this section */
+}
+
+.our-results-section .section-intro h2 {
+    color: white; /* White heading for this dark section */
+}
+
+.our-results-section .section-intro p {
+    color: #E0E0E0; /* Lighter white for paragraph */
+}
+
+.stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Space between stat items */
+}
+
+.stat-item {
+    flex-basis: calc(25% - 22.5px); /* Approx 4 items per row, considering gap */
+    min-width: 200px; /* Minimum width before wrapping */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-shape {
+    /* This creates a square rotated 45 degrees, visually similar to a diamond/pentagon base. */
+    /* For a true pentagon/hexagon, more complex CSS (clip-path) or SVG images would be used. */
+    background-color: #FF6565; /* Red background for the shape */
+    width: 150px; /* Size of the shape */
+    height: 150px;
+    border-radius: 10px; /* Slightly rounded corners, adjust for exact shape */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(45deg); /* Rotate for a diamond-like effect */
+    margin: 10px; /* Space around the shape */
+}
+
+.stat-shape .stat-value {
+    font-family: 'Spin Cycle OT', sans-serif; /* Use Spin Cycle font for numbers (ensure imported/available) */
+    font-size: 40px; /* Large size for the percentage */
+    font-weight: bold;
+    color: white;
+    transform: rotate(-45deg); /* Rotate text back to normal relative to its parent */
+    display: block; /* Ensure rotation applies correctly */
+}
+
+.stat-shape .stat-label {
+    font-size: 14px;
+    color: white;
+    transform: rotate(-45deg); /* Rotate text back to normal relative to its parent */
+    display: block;
+    margin-top: 5px;
+}
+
+
+/* --- "Contact us" Section (.contact-section) --- */
+.contact-section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: #F8F8F8; /* Light background */
+}
+
+.contact-section h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.contact-form {
+    max-width: 500px; /* Max width for the form itself */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: left; /* Align labels/inputs to the left */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #F8F8F8; /* Match section background */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #FF6565; /* Highlight border on focus */
+    box-shadow: 0 0 0 2px rgba(255, 101, 101, 0.2);
+}
+
+.contact-btn {
+    background-color: #FF6565;
+    color: white;
+    padding: 15px 50px; /* Wider button */
+    border-radius: 25px;
+    font-size: 18px; /* Larger text */
+    margin-top: 20px;
+}
+
+/* --- 3. Footer Section (.main-footer) --- */
+.main-footer {
+    background-color: #2D2D2D; /* Dark background */
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 20px; /* Space if wrapping occurs */
+}
+
+.footer-left .logo img {
+    height: 30px; /* Footer logo size */
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px; /* Space between social icons */
+    margin-bottom: 10px;
+}
+
+.social-links img {
+    width: 30px; /* Social icon size */
+    height: 30px;
+    opacity: 0.8; /* Slightly dimmed */
+    transition: opacity 0.3s ease;
+}
+
+.social-links img:hover {
+    opacity: 1; /* Full opacity on hover */
+}
+
+.main-footer p {
+    font-size: 14px;
+    color: #E0E0E0;
+    margin: 0;
+}
+
+/* --- 4. Responsive Design (@media queries) --- */
+
+/* Mobile version when screen width is 480px or less */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px; /* Less padding on very small screens */
+    }
+
+    /* Header adjustments */
+    .hero-section {
+        padding-bottom: 30px; /* Adjust header bottom padding for mobile */
+    }
+
+    .header-content-wrapper {
+        flex-direction: column; /* Stack logo and nav vertically */
+        padding-top: 15px;
+        align-items: flex-start; /* Align menu/logo to left in mobile */
+    }
+
+    .logo {
+        width: 100%; /* Logo takes full width for centering */
+        text-align: center;
+        margin-bottom: 20px; /* Space below logo */
+    }
+
+    /* Mobile menu icon (hamburger) */
+    .menu-icon {
+        display: flex; /* Show hamburger icon */
+        position: absolute; /* Position relative to header-content-wrapper (needs position:relative on parent) */
+        top: 20px;
+        right: 20px;
+    }
+
+    .main-nav {
+        display: none; /* Hide nav by default */
+        width: 100%;
+        margin-top: 20px; /* Space below logo */
+        flex-direction: column; /* Stack nav items vertically */
+        background-color: rgba(0, 0, 0, 0.9); /* Darker background for mobile nav overlay */
+        padding: 20px 0;
+        position: fixed; /* Fixed position to cover entire screen */
+        top: 0;
+        left: 0;
+        height: 100vh;
+        justify-content: center; /* Center nav items vertically */
+        z-index: 99; /* Ensure it's above page content but below menu icon */
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-list li {
+        margin: 15px 0; /* Vertical spacing for stacked nav items */
+    }
+
+    .nav-link {
+        font-size: 20px; /* Larger nav links for touch */
+    }
+
+    /* Toggle mobile menu visibility and transform icon */
+    .menu-toggle:checked + .menu-icon + .main-nav {
+        display: flex; /* Show nav when checkbox is checked */
+    }
+
+    .menu-toggle:checked + .menu-icon span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px); /* First bar rotates to form 'X' */
+    }
+    .menu-toggle:checked + .menu-icon span:nth-child(2) {
+        opacity: 0; /* Middle bar disappears */
+    }
+    .menu-toggle:checked + .menu-icon span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px); /* Third bar rotates to form 'X' */
+    }
+
+
+    /* Hero banner content adjustments for mobile */
+    .hero-banner-content h1 {
+        font-size: 3.5em; /* Adjust font size for mobile */
+    }
+    .hero-banner-content p {
+        font-size: 1.2em;
+    }
+    .hero-description {
+        font-size: 14px;
+        padding: 0 10px; /* Less padding */
+    }
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+
+    /* What we do section adjustments for mobile */
+    .what-we-do-section {
+        padding: 50px 0;
+    }
+    .section-intro h2 {
+        font-size: 28px;
+    }
+    .section-intro p {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+    .features-grid {
+        flex-direction: column; /* Stack features vertically */
+        gap: 20px;
+    }
+    .feature-item {
+        min-width: 80%; /* Almost full width for stacked items */
+    }
+
+    /* Our results section adjustments for mobile */
+    .our-results-section {
+        padding: 50px 0;
+    }
+    .stats-grid {
+        flex-direction: column; /* Stack stats vertically */
+        gap: 20px;
+    }
+    .stat-item {
+        min-width: 80%;
+    }
+    .stat-shape {
+        width: 120px; /* Smaller shapes for mobile */
+        height: 120px;
+    }
+    .stat-shape .stat-value {
+        font-size: 32px;
+    }
+    .stat-shape .stat-label {
+        font-size: 12px;
+    }
+
+    /* Contact section adjustments for mobile */
+    .contact-section {
+        padding: 50px 0;
+    }
+    .contact-section h2 {
+        font-size: 28px;
+    }
+    .contact-form {
+        padding: 0 15px; /* Adjust form padding */
+    }
+    .contact-btn {
+        width: 100%; /* Full width button */
+    }
+
+    /* Footer adjustments for mobile */
+    .main-footer {
+        padding: 30px 0;
+    }
+    .footer-content {
+        flex-direction: column; /* Stack footer content */
+    }
+    .footer-left, .footer-right {
+        margin-bottom: 20px; /* Space between stacked footer elements */
+    }
+    .footer-left .logo img {
+        margin-bottom: 10px; /* Space below logo in footer */
+    }
+}
